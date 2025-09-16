@@ -2,6 +2,8 @@
 # Dette er et modul til oversættelse mellem almindelige sprog og røversprog
 
 def oversaet_til_roeversprog(inputtekst):
+    input()=inputtekst
+     
     outputtekst = "Denne funktion skal kunne oversætte til røversprog."
     return outputtekst
 
