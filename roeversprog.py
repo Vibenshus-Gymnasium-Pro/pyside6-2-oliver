@@ -17,16 +17,25 @@ def oversaet_til_roeversprog(inputtekst):
 
 def oversaet_fra_roeversprog_til_andet_sprog(inputtekst):
     outputtekst = ""
-    roeversprog=['bob','coc','dod','fof','gog','hoh','joj','kok','lol','mom','pop','qoq','ror','sos','tut','vov','waw','xox','zoz']
-    for i in range(roeversprog[i]): 
-        if i is i+"o"+i:
-            outputtekst -= "o"+i
+    i = 0
+    while i < len(inputtekst):
+        bogstav = inputtekst[i]
+        # Hvis vi finder et mønster som konsonant + 'o' + samme konsonant, springer vi det rigtige antal tegn over
+        if (i+2 < len(inputtekst) and
+            inputtekst[i].lower() == inputtekst[i+2].lower() and
+            inputtekst[i+1] == 'o' and
+            inputtekst[i].lower() in "bcdfghjklmnpqrstvwxz"):
+            outputtekst += bogstav
+            i += 3
         else:
-            outputtekst += i   
-    return outputtekst 
+            outputtekst += bogstav
+            i += 1
+    return outputtekst
 # Udvikling af logik:1 ends here
-if inputchoice == 1:
-    oversaet_til_roeversprog(inputtekst)
-elif inputchoice == 0:
-    oversaet_fra_roeversprog_til_andet_sprog(inputtekst)
+if inputchoice == "1":
+    print(oversaet_til_roeversprog(inputtekst))
+elif inputchoice == "2":
+    print(oversaet_fra_roeversprog(inputtekst))
+else:
+    print("Ugyldigt valg")
 
